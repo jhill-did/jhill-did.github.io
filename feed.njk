@@ -26,8 +26,8 @@ eleventyExcludeFromCollections: true
       <link href="{{ post.url | url | absoluteUrl(absoluteUrl) }}"/>
       <updated>{{ post.date | dateToRfc3339 }}</updated>
       <id>{{ post.url | url | absoluteUrl(absoluteUrl) }}</id>
-      <summary>{{ post.data.description or post.templateContent | striptags }}</summary>
-      <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(siteRoot) }}</content>
+      <summary>{{ post.data.description or post.content | striptags }}</summary>
+      <content type="html">{{ post.content | htmlToAbsoluteUrls(siteRoot) }}</content>
     </entry>
   {% endfor %}
 </feed>
