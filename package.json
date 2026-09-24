@@ -11,7 +11,7 @@
     "debug": "cross-env DEBUG=Eleventy* npx @11ty/eleventy"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6",

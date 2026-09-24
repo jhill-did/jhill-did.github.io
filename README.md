@@ -4,7 +4,7 @@ Technical blog powered by the standard [Eleventy Base Blog](https://github.com/1
 
 ## Local development
 
-1. Install Node.js 18 or newer.
+1. Install Node.js 22 or newer.
 2. Install dependencies:
 
    ```bash
