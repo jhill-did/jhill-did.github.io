@@ -32,6 +32,14 @@ export default function(eleventyConfig) {
     return (tags || []).filter((tag) => ["all", "posts"].indexOf(tag) === -1);
   });
 
+  eleventyConfig.addFilter("tagSlug", (value) =>
+    String(value || "")
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+  );
+
   eleventyConfig.addFilter("sortAlphabetically", (strings) =>
     (strings || []).sort((a, b) => a.localeCompare(b))
   );
