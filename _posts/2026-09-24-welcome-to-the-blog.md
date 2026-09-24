@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Welcome to the Blog"
-date: 2026-09-24 00:00:00 +0000
+date: 2024-09-24 00:00:00 +0000
 categories: [general]
 ---
 
