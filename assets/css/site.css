@@ -173,6 +173,12 @@ pre code {
   box-shadow: 0 0 0 0.2rem rgba(89, 215, 220, 0.2);
 }
 
+.site-nav a[aria-current="page"] {
+  border-color: rgba(89, 215, 220, 0.45);
+  background: rgba(0, 173, 181, 0.18);
+  color: var(--text-strong);
+}
+
 main.shell {
   padding: 3rem 0 4rem;
 }

@@ -28,7 +28,7 @@
         <nav aria-label="Primary">
           <ul class="site-nav">
             {% for item in navigationItems %}
-              <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+              <li><a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
             {% endfor %}
           </ul>
         </nav>
