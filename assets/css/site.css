@@ -166,6 +166,8 @@ pre code {
   border-color: rgba(0, 173, 181, 0.35);
   background: rgba(0, 173, 181, 0.12);
   color: var(--text-strong);
+  text-decoration: underline;
+  text-decoration-thickness: 0.12em;
 }
 
 .site-nav a:focus-visible {
