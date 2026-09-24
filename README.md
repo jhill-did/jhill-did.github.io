@@ -32,6 +32,7 @@ Technical blog powered by Eleventy (11ty) and GitHub Pages.
 - `_data/site.js` contains site-wide metadata used for templates and feeds.
 - `posts/` contains blog posts and shared front matter defaults.
 - `assets/css/site.css` provides the site's lightweight styling.
+- Visual styling is inspired by the Basically Basic Jekyll theme by Michael Rose (MIT licensed), adapted here for Eleventy without Jekyll or Ruby theme dependencies.
 - `.github/workflows/pages.yml` builds and deploys the generated `_site` output to GitHub Pages on pushes to `main`.
 
 ## GitHub Pages deployment
