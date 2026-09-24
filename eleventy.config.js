@@ -34,10 +34,6 @@ export default async function(eleventyConfig) {
     bundleHtmlContentFromSelector: "style"
   });
 
-  eleventyConfig.addBundle("js", {
-    toFileDirectory: "dist",
-    bundleHtmlContentFromSelector: "script"
-  });
 
   eleventyConfig.addPlugin(pluginSyntaxHighlight, {
     preAttributes: { tabindex: 0 }
@@ -50,12 +46,6 @@ export default async function(eleventyConfig) {
     type: "atom",
     outputPath: "/feed/feed.xml",
     stylesheet: "pretty-atom-feed.xsl",
-    templateData: {
-      eleventyNavigation: {
-        key: "Feed",
-        order: 4
-      }
-    },
     collection: {
       name: "posts",
       limit: 10
