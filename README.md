@@ -42,4 +42,5 @@ The repository includes a GitHub Actions workflow that:
 - uploads the generated `_site` artifact
 - deploys the artifact to GitHub Pages
 
-Once GitHub Pages is enabled for the repository, pushes to `main` will trigger deployment.
+Before the first deployment, set the repository's GitHub Pages source to **GitHub Actions**
+in **Settings → Pages**. After that, pushes to `main` will trigger deployment.
