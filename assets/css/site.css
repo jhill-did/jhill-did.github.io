@@ -289,9 +289,7 @@ main > pre {
 .post-meta {
   margin: 0.25rem 0 1rem;
   color: var(--muted);
-  font-size: 0.88rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.95rem;
 }
 
 .post-card p,
