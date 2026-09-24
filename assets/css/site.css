@@ -344,7 +344,8 @@ main blockquote {
   }
 
   .post-card,
-  .post {
+  .post,
+  .page {
     padding: 1.25rem;
   }
 }
