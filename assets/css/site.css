@@ -100,8 +100,7 @@ pre code {
 }
 
 @supports ((-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))) {
-  .site-header,
-  .site-footer {
+  .site-header {
     background: rgba(31, 36, 45, 0.9);
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
@@ -214,7 +213,7 @@ main > *:last-child,
 
 .page-header p,
 .post-header p,
-main > p:first-of-type {
+.page-intro {
   max-width: 42rem;
   color: var(--muted);
   font-size: 1.05rem;
