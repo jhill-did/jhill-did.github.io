@@ -94,10 +94,18 @@ pre code {
 
 .site-header,
 .site-footer {
-  background: rgba(31, 36, 45, 0.9);
+  background: rgba(31, 36, 45, 0.98);
   border-color: var(--border);
   border-style: solid;
-  backdrop-filter: blur(12px);
+}
+
+@supports ((-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))) {
+  .site-header,
+  .site-footer {
+    background: rgba(31, 36, 45, 0.9);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
 }
 
 .site-header {
@@ -149,7 +157,9 @@ pre code {
   border-radius: 999px;
   color: var(--muted);
   text-decoration: none;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .site-nav a:hover,
@@ -157,6 +167,11 @@ pre code {
   border-color: rgba(0, 173, 181, 0.35);
   background: rgba(0, 173, 181, 0.12);
   color: var(--text-strong);
+}
+
+.site-nav a:focus-visible {
+  outline-color: var(--accent-strong);
+  box-shadow: 0 0 0 0.2rem rgba(89, 215, 220, 0.2);
 }
 
 main.shell {
