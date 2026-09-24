@@ -1,4 +1,4 @@
-const siteUrl = process.env.CI ? "https://jhill-did.github.io" : "http://localhost:8080";
+const siteUrl = process.env.SITE_URL || "http://localhost:8080";
 
 module.exports = {
   title: "jhill-did.github.io",
