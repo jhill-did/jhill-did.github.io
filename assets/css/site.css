@@ -220,19 +220,10 @@ main > *:last-child,
 }
 
 .page-header p,
-.post-header p,
-.page-intro {
+.post-header p {
   max-width: 42rem;
   color: var(--muted);
   font-size: 1.05rem;
-}
-
-main > p,
-main > ul,
-main > ol,
-main > blockquote,
-main > pre {
-  max-width: 42rem;
 }
 
 .post-list {
@@ -245,7 +236,8 @@ main > pre {
 }
 
 .post-card,
-.post {
+.post,
+.page {
   position: relative;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
   border: 1px solid var(--border);
@@ -255,7 +247,8 @@ main > pre {
 }
 
 .post-card::before,
-.post::before {
+.post::before,
+.page::before {
   content: "";
   position: absolute;
   inset: 0 auto auto 0;
@@ -292,6 +285,15 @@ main > pre {
   margin: 0.25rem 0 1rem;
   color: var(--muted);
   font-size: 0.95rem;
+}
+
+.post,
+.page {
+  max-width: 48rem;
+}
+
+.page-content > :first-child {
+  margin-top: 0;
 }
 
 .post-card p,
