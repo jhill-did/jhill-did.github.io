@@ -4,17 +4,18 @@ eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
 {% set absoluteUrl = site.url %}
+{% set siteRoot = '/' | url | absoluteUrl(absoluteUrl) %}
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ site.language }}">
   <title>{{ site.title }}</title>
   <subtitle>{{ site.description }}</subtitle>
   <link href="{{ '/feed.xml' | url | absoluteUrl(absoluteUrl) }}" rel="self"/>
-  <link href="{{ absoluteUrl }}"/>
+  <link href="{{ siteRoot }}"/>
   {% if collections.posts.length %}
     <updated>{{ collections.posts[0].date | dateToRfc3339 }}</updated>
   {% else %}
     <updated>{{ page.date | dateToRfc3339 }}</updated>
   {% endif %}
-  <id>{{ absoluteUrl }}/</id>
+  <id>{{ siteRoot }}</id>
   <author>
     <name>{{ site.author.name }}</name>
     <email>{{ site.author.email }}</email>
@@ -26,7 +27,7 @@ eleventyExcludeFromCollections: true
       <updated>{{ post.date | dateToRfc3339 }}</updated>
       <id>{{ post.url | url | absoluteUrl(absoluteUrl) }}</id>
       <summary>{{ post.data.description or post.templateContent | striptags }}</summary>
-      <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(absoluteUrl) }}</content>
+      <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(siteRoot) }}</content>
     </entry>
   {% endfor %}
 </feed>

@@ -9,7 +9,7 @@
     <link rel="alternate" href="{{ '/feed.xml' | url | absoluteUrl(site.url) }}" type="application/atom+xml" title="{{ site.title }}">
     <meta property="og:title" content="{% if title %}{{ title }} · {% endif %}{{ site.title }}">
     <meta property="og:description" content="{{ description or site.description }}">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="{{ ogType or 'website' }}">
     <meta property="og:url" content="{{ page.url | url | absoluteUrl(site.url) }}">
     <meta name="generator" content="Eleventy">
     <link rel="stylesheet" href="/assets/css/site.css">
@@ -21,9 +21,9 @@
         <a class="site-title" href="/">{{ site.title }}</a>
         <nav aria-label="Primary">
           <ul class="site-nav">
-            {% for item in site.navigation %}
-              <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-            {% endfor %}
+            <li><a href="/">Home</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/feed.xml">Feed</a></li>
           </ul>
         </nav>
       </div>

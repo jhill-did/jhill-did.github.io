@@ -6,19 +6,5 @@
   "author": {
     "name": "Your Name",
     "email": "you@example.com"
-  },
-  "navigation": [
-    {
-      "title": "Home",
-      "url": "/"
-    },
-    {
-      "title": "About",
-      "url": "/about/"
-    },
-    {
-      "title": "Feed",
-      "url": "/feed.xml"
-    }
-  ]
+  }
 }
