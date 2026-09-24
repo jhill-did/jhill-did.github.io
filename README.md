@@ -1,17 +1,17 @@
 # jhill-did.github.io
 
-Technical blog powered by Eleventy (11ty) and GitHub Pages.
+Technical blog powered by the standard [Eleventy Base Blog](https://github.com/11ty/eleventy-base-blog) starter and deployed with GitHub Pages.
 
 ## Local development
 
-1. Install Node.js.
+1. Install Node.js 22 or newer.
 2. Install dependencies:
 
    ```bash
    npm install
    ```
 
-3. Start the local development server with live reload:
+3. Start the local development server:
 
    ```bash
    npm run serve
@@ -25,23 +25,17 @@ Technical blog powered by Eleventy (11ty) and GitHub Pages.
    npm run build
    ```
 
-## Site structure
+## Project structure
 
-- `.eleventy.js` contains the Eleventy configuration, collections, filters, and passthrough copy rules.
-- `_includes/layouts/` contains the shared page templates.
-- `_data/site.js` contains site-wide metadata used for templates and feeds.
-- `posts/` contains blog posts and shared front matter defaults.
-- `assets/css/site.css` provides the site's lightweight styling.
-- `.github/workflows/pages.yml` builds and deploys the generated `_site` output to GitHub Pages on pushes to `main`.
+- `eleventy.config.js` contains the Eleventy Base Blog configuration and plugin setup.
+- `content/` contains the home page, archive, about page, tag pages, feed assets, and blog posts.
+- `_includes/` contains the shared base, home, and post layouts.
+- `_data/metadata.js` contains site-wide metadata.
+- `css/` contains the default Eleventy Base Blog starter styles.
+- `.github/workflows/pages.yml` builds and deploys the generated `_site` output to GitHub Pages.
 
 ## GitHub Pages deployment
 
-The repository includes a GitHub Actions workflow that:
+The repository includes a GitHub Actions workflow that installs dependencies, builds the site with Eleventy, uploads the generated `_site` artifact, and deploys it to GitHub Pages.
 
-- installs the Node dependencies
-- builds the site with Eleventy
-- uploads the generated `_site` artifact
-- deploys the artifact to GitHub Pages
-
-Before the first deployment, set the repository's GitHub Pages source to **GitHub Actions**
-in **Settings → Pages**. After that, pushes to `main` will trigger deployment.
+The workflow continues to use `SITE_URL` and `ELEVENTY_PATH_PREFIX` environment variables so the starter works correctly when deployed through GitHub Pages.

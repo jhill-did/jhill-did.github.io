@@ -1,11 +1,27 @@
 ---
 layout: layouts/base.njk
-ogType: article
 ---
-<article class="post">
-  <header class="post-header">
-    <h1>{{ title }}</h1>
-    <p class="post-meta"><time datetime="{{ page.date.toISOString() }}">{{ page.date | readableDate }}</time></p>
-  </header>
-  {{ content | safe }}
-</article>
+<style>{% include "node_modules/prismjs/themes/prism-okaidia.css" %}</style>
+<style>{% include "css/prism-diff.css" %}</style>
+<h1>{{ title }}</h1>
+
+<ul class="post-metadata">
+  <li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></li>
+  {%- for tag in tags | filterTagList %}
+  {%- set tagUrl %}/tags/{{ tag | tagSlug }}/{% endset %}
+  <li><a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
+  {%- endfor %}
+</ul>
+
+{{ content | safe }}
+
+{%- if collections.posts %}
+{%- set previousPost = collections.posts | getPreviousCollectionItem %}
+{%- set nextPost = collections.posts | getNextCollectionItem %}
+{%- if nextPost or previousPost %}
+<ul class="links-nextprev">
+  {%- if previousPost %}<li class="links-nextprev-prev">← Previous<br> <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></li>{% endif %}
+  {%- if nextPost %}<li class="links-nextprev-next">Next →<br><a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></li>{% endif %}
+</ul>
+{%- endif %}
+{%- endif %}
