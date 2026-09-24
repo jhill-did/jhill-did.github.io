@@ -1,0 +1,14 @@
+{
+  "name": "jhill-did.github.io",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Technical blog powered by Eleventy and GitHub Pages.",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-plugin-rss": "^2.0.3"
+  }
+}
