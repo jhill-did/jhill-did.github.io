@@ -4,20 +4,26 @@ Technical blog powered by Jekyll, the `minima` theme, and GitHub Pages.
 
 ## Local development
 
-1. Install Ruby and Bundler.
-2. Install dependencies:
+1. Install Ruby.
+2. Install Bundler if it is not already available:
+
+   ```bash
+   gem install bundler
+   ```
+
+3. Install dependencies:
 
    ```bash
    bundle install
    ```
 
-3. Start the local development server:
+4. Start the local development server:
 
    ```bash
    bundle exec jekyll serve
    ```
 
-4. Visit <http://127.0.0.1:4000> in your browser.
+5. Visit <http://127.0.0.1:4000> in your browser.
 
 ## Site structure
 
