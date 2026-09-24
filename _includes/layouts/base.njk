@@ -18,17 +18,17 @@
     <meta property="og:type" content="{{ ogType or 'website' }}">
     <meta property="og:url" content="{{ page.url | url | absoluteUrl(site.url) }}">
     <meta name="generator" content="Eleventy">
-    <link rel="stylesheet" href="{{ stylesheetUrl }}">
+    <link rel="stylesheet" href="{{ stylesheetUrl | url | absoluteUrl(site.url) }}">
   </head>
   <body>
     <a class="skip-link" href="#content">Skip to content</a>
     <header class="site-header">
       <div class="shell">
-        <a class="site-title" href="/">{{ site.title }}</a>
+        <a class="site-title" href="{{ '/' | url | absoluteUrl(site.url) }}">{{ site.title }}</a>
         <nav aria-label="Primary">
           <ul class="site-nav">
             {% for item in navigationItems %}
-              <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+              <li><a href="{{ item.url | url | absoluteUrl(site.url) }}">{{ item.title }}</a></li>
             {% endfor %}
           </ul>
         </nav>

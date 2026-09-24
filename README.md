@@ -29,7 +29,7 @@ Technical blog powered by Eleventy (11ty) and GitHub Pages.
 
 - `.eleventy.js` contains the Eleventy configuration, collections, filters, and passthrough copy rules.
 - `_includes/layouts/` contains the shared page templates.
-- `_data/site.json` contains site-wide metadata used for templates and feeds.
+- `_data/site.js` contains site-wide metadata used for templates and feeds.
 - `posts/` contains blog posts and shared front matter defaults.
 - `assets/css/site.css` provides the site's lightweight styling.
 - `.github/workflows/pages.yml` builds and deploys the generated `_site` output to GitHub Pages on pushes to `main`.
