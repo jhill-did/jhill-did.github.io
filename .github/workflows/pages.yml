@@ -37,7 +37,7 @@ jobs:
         run: npm ci
 
       - name: Build with Eleventy
-        run: npm run build -- --pathprefix "${{ steps.pages.outputs.base_path }}"
+        run: ELEVENTY_PATH_PREFIX="${{ steps.pages.outputs.base_path }}" npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
