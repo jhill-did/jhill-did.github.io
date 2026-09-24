@@ -1,44 +1,45 @@
 # jhill-did.github.io
 
-Technical blog powered by Jekyll, the `minima` theme, and GitHub Pages.
+Technical blog powered by Eleventy (11ty) and GitHub Pages.
 
 ## Local development
 
-1. Install Ruby.
-2. Install Bundler if it is not already available:
+1. Install Node.js.
+2. Install dependencies:
 
    ```bash
-   gem install bundler
+   npm install
    ```
 
-3. Install dependencies:
+3. Start the local development server with live reload:
 
    ```bash
-   bundle install
+   npm run serve
    ```
 
-4. Start the local development server:
+4. Visit <http://127.0.0.1:8080> in your browser.
+
+5. Create a production build at any time with:
 
    ```bash
-   bundle exec jekyll serve
+   npm run build
    ```
-
-5. Visit <http://127.0.0.1:4000> in your browser.
 
 ## Site structure
 
-- `_config.yml` contains site metadata and Jekyll configuration.
-- `_posts/` contains blog posts in standard Jekyll dated filename format.
-- `about.md` is a simple standalone page linked from the header.
-- `assets/css/style.scss` imports `minima` and provides lightweight custom styling.
-- `.github/workflows/pages.yml` builds and deploys the site to GitHub Pages on pushes to `main`.
+- `.eleventy.js` contains the Eleventy configuration, collections, filters, and passthrough copy rules.
+- `_includes/layouts/` contains the shared page templates.
+- `_data/site.json` contains site-wide metadata used for templates and feeds.
+- `posts/` contains blog posts and shared front matter defaults.
+- `assets/css/site.css` provides the site's lightweight styling.
+- `.github/workflows/pages.yml` builds and deploys the generated `_site` output to GitHub Pages on pushes to `main`.
 
 ## GitHub Pages deployment
 
 The repository includes a GitHub Actions workflow that:
 
-- installs the Ruby dependencies
-- builds the site with Jekyll
+- installs the Node dependencies
+- builds the site with Eleventy
 - uploads the generated `_site` artifact
 - deploys the artifact to GitHub Pages
 

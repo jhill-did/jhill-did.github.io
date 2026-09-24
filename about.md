@@ -1,10 +1,11 @@
 ---
-layout: page
+layout: layouts/base.njk
 title: About
 permalink: /about/
+description: Learn what this technical blog covers and what to expect from future posts.
 ---
 
-This site is a starter technical blog built with Jekyll, the GitHub Pages toolchain,
-and the `minima` theme.
+This site is a starter technical blog built with Eleventy and deployed with GitHub Pages.
 
-Use this page to introduce the blog, the topics it covers, and a short author bio.
+Expect notes, experiments, and write-ups about software, infrastructure, and development
+workflows.

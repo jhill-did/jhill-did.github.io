@@ -1,0 +1,24 @@
+{
+  "title": "jhill-did.github.io",
+  "description": "A technical blog for notes, experiments, and write-ups on software, infrastructure, and development workflows.",
+  "url": "https://jhill-did.github.io",
+  "language": "en",
+  "author": {
+    "name": "Your Name",
+    "email": "you@example.com"
+  },
+  "navigation": [
+    {
+      "title": "Home",
+      "url": "/"
+    },
+    {
+      "title": "About",
+      "url": "/about/"
+    },
+    {
+      "title": "Feed",
+      "url": "/feed.xml"
+    }
+  ]
+}
