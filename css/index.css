@@ -92,6 +92,10 @@ iframe {
   aspect-ratio: 16/9;
 }
 
+h1 {
+  font-family: "Schibsted Grotesk", var(--font-family);
+}
+
 p:last-child {
   margin-bottom: 0;
 }
@@ -318,7 +322,6 @@ a.post-tag::before {
 
 .post-heading {
   color: rgb(235, 235, 236);
-  font-family: "Schibsted Grotesk";
 	font-weight: 700;
   margin-bottom: .125em;
 }
