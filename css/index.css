@@ -1,6 +1,6 @@
 /* Defaults */
 :root {
-  --font-family: -apple-system, system-ui, sans-serif;
+  --font-family: "Source Sans Pro", system-ui, sans-serif;
   --font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
 }
 
@@ -22,15 +22,15 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-gray-20: #e0e0e0;
+    --color-gray-20: rgb(57, 54, 57);
     --color-gray-50: #C0C0C0;
     --color-gray-90: #dad8d8;
 
-    --text-color-link: #1493fb;
-    --text-color-link-active: #6969f7;
+    --text-color-link: rgb(219, 92, 245);
+    --text-color-link-active: rgb(233, 150, 250);
     --text-color-link-visited: #a6a6f8;
 
-    --background-color: #15202b;
+    --background-color: rgb(22, 22, 24);
   }
 }
 
@@ -40,6 +40,11 @@
 
 @view-transition {
   navigation: auto;
+}
+::view-transition-group(*),
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 150ms;
 }
 
 html,
@@ -54,7 +59,7 @@ html {
   overflow-y: scroll;
 }
 body {
-  max-width: 40em;
+  max-width: 700px;
 }
 
 .visually-hidden:not(:focus):not(:active) {
@@ -100,6 +105,7 @@ li {
 
 a[href] {
   color: var(--text-color-link);
+  text-decoration: none;
 }
 a[href]:visited {
   color: var(--text-color-link-visited);
@@ -109,8 +115,7 @@ a[href]:active {
   color: var(--text-color-link-active);
 }
 
-main,
-footer {
+main {
   padding: 1rem;
 }
 main :first-child {
@@ -118,7 +123,7 @@ main :first-child {
 }
 
 header {
-  border-bottom: 1px dashed var(--color-gray-20);
+  border-bottom: 1px solid var(--color-gray-20);
 }
 
 #skip-link {
@@ -137,12 +142,18 @@ header {
   z-index: 999;
 }
 
+.post-fin {
+  margin: 2em 0 0;
+  text-align: center;
+}
+
 .links-nextprev {
   display: flex;
   justify-content: space-between;
   gap: .5em 1em;
   list-style: "";
-  border-top: 1px dashed var(--color-gray-20);
+  border-top: 1px solid var(--color-gray-20);
+  margin-top: 2em;
   padding: 1em 0;
 }
 .links-nextprev > * {
@@ -163,6 +174,10 @@ table th {
 pre,
 code {
   font-family: var(--font-family-monospace);
+  font-size: .875em;
+}
+pre code {
+  font-size: 1em;
 }
 pre:not([class*="language-"]) {
   margin: .5em 0;
@@ -197,9 +212,6 @@ header {
   font-size: 1em;
   font-weight: 700;
 }
-.home-link:link:not(:hover) {
-  text-decoration: none;
-}
 
 .nav {
   display: flex;
@@ -211,11 +223,23 @@ header {
 .nav-item {
   display: inline-block;
 }
-.nav-item a[href]:not(:hover) {
-  text-decoration: none;
-}
 .nav a[href][aria-current="page"] {
-  text-decoration: underline;
+  font-weight: bold;
+}
+/* Reserve the bold width so switching pages doesn't shift the nav */
+.nav-item a[data-text] {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav-item a[data-text]::after {
+  content: attr(data-text);
+  font-weight: bold;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  user-select: none;
+  pointer-events: none;
 }
 
 .postlist {
@@ -253,33 +277,48 @@ header {
   flex-basis: calc(100% - 1.5rem);
   padding-left: .25em;
   padding-right: .5em;
-  text-underline-position: from-font;
-  text-underline-offset: 0;
-  text-decoration-thickness: 1px;
 }
 .postlist-item-active .postlist-link {
   font-weight: bold;
 }
 
-.post-tag {
+a.post-tag {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  text-transform: capitalize;
-  font-style: italic;
+  background-color: rgba(219, 92, 245, 0.1);
+  padding: 6px 12px;
+  border-radius: 16px;
+  text-transform: lowercase;
+  font-style: normal;
+  text-decoration: none;
+  line-height: normal;
+}
+a.post-tag::before {
+  content: "#";
 }
 .postlist-item > .post-tag {
   align-self: center;
 }
 
-.post-metadata {
-  display: inline-flex;
+.post-header {
+  margin-bottom: 2em;
+}
+.post-date {
+  display: block;
+}
+.post-tags {
+  display: flex;
   flex-wrap: wrap;
   gap: .5em;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 1em 0 0;
 }
-.post-metadata time {
-  margin-right: 1em;
+
+.post-heading {
+  color: rgb(235, 235, 236);
+  font-family: "Schibsted Grotesk";
+	font-weight: 700;
+  margin-bottom: .125em;
 }

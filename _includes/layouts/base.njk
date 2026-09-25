@@ -12,6 +12,12 @@
     <style>{% getBundle "css" %}</style>
 
     <script type="module">{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}</script>
+
+		<!-- Schibsted Grotesk -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
   </head>
   <body>
     <a href="#main" id="skip-link" class="visually-hidden">Skip to main content</a>
@@ -23,7 +29,7 @@
         <h2 class="visually-hidden">Top level navigation menu</h2>
         <ul class="nav">
         {%- for entry in collections.all | eleventyNavigation %}
-          <li class="nav-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
+          <li class="nav-item"><a href="{{ entry.url }}" data-text="{{ entry.title }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
         {%- endfor %}
           <li class="nav-item"><a href="{{ "/feed/feed.xml" | url }}">Feed</a></li>
         </ul>
@@ -35,12 +41,6 @@
         {{ content | safe }}
       </heading-anchors>
     </main>
-
-    <footer>
-      <p>
-        <em>~</em>
-      </p>
-    </footer>
 
     <!-- This page `{{ page.url }}` was built on {% currentBuildDate %} -->
   </body>

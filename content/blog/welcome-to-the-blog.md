@@ -1,23 +1,70 @@
 ---
-title: Welcome to the Blog
-description: A first post to confirm the Eleventy Base Blog starter is wired up and ready for future writing.
-date: 2024-09-24
+title: Mipmapping
+description: A look at how mipmapping works and some applications 
+date: 2026-09-25
 tags:
-  - starter
-  - setup
+  - graphics
 ---
-Welcome to your new Eleventy Base Blog starter.
 
-This post confirms the standard archive, post layout, feed, sitemap, and tag pages are all connected.
+Mipmapping is a texture filtering approach where details are averaged into a series of smaller resolution images. This is typically done by recursively halving the resolution of the image and for each resulting pixel averaging a 4x4 texel neighborhood from the source image
 
-## Next steps
 
-- Update `_data/metadata.js` with final site details.
-- Replace this starter content with your first real article.
 - Customize the default `eleventy-base-blog` styling when you are ready.
 
-```js
-function helloEleventy() {
-  return "Base blog is ready.";
+```cpp
+#include <iostream>
+
+int main() {
+    std::cout << "Hello, world!" << std::endl;
+    return 0;
 }
+```
+
+```js
+// Say hello a few times
+function greet(name, times = 3) {
+  for (let i = 0; i < times; i++) {
+    console.log(`Hello, ${name}! (${i + 1})`);
+  }
+}
+
+greet("world");
+```
+
+```ts
+interface Greeting {
+  name: string;
+  excited?: boolean;
+}
+
+function greet({ name, excited = false }: Greeting): string {
+  return `Hello, ${name}${excited ? "!" : "."}`;
+}
+
+console.log(greet({ name: "world", excited: true }));
+```
+
+```glsl
+#version 330 core
+
+in vec2 vUv;
+uniform sampler2D uTexture;
+out vec4 fragColor;
+
+void main() {
+    // Sample the texture at a lower mip level
+    vec4 color = textureLod(uTexture, vUv, 2.0);
+    fragColor = vec4(color.rgb * 0.5 + 0.5, 1.0);
+}
+```
+
+```bash
+npm install --save-dev @11ty/eleventy
+```
+
+```shell-session
+$ g++ -o hello hello.cpp && ./hello
+Hello, world!
+$ echo $?
+0
 ```

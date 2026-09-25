@@ -3,7 +3,7 @@ permalink: /tags/
 ---
 <h1>Tags</h1>
 
-<ul>
+<ul class="post-tags">
 {% for tag in collections | getKeys | filterTagList | sortAlphabetically %}
   {% set tagUrl %}/tags/{{ tag | tagSlug }}/{% endset %}
   <li><a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a></li>

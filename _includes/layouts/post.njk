@@ -1,19 +1,25 @@
 ---
 layout: layouts/base.njk
 ---
-<style>{% include "node_modules/prismjs/themes/prism-okaidia.css" %}</style>
+<style>{% include "css/prism-obsidian.css" %}</style>
 <style>{% include "css/prism-diff.css" %}</style>
-<h1>{{ title }}</h1>
-
-<ul class="post-metadata">
-  <li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></li>
-  {%- for tag in tags | filterTagList %}
-  {%- set tagUrl %}/tags/{{ tag | tagSlug }}/{% endset %}
-  <li><a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
-  {%- endfor %}
-</ul>
+<div class="post-header">
+  <h1 class="post-heading">{{ title }}</h1>
+  <time class="post-date" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+  {%- set postTags = tags | filterTagList %}
+  {%- if postTags | length %}
+  <ul class="post-tags">
+    {%- for tag in postTags %}
+    {%- set tagUrl %}/tags/{{ tag | tagSlug }}/{% endset %}
+    <li><a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a></li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+</div>
 
 {{ content | safe }}
+
+<p class="post-fin"><em>~</em></p>
 
 {%- if collections.posts %}
 {%- set previousPost = collections.posts | getPreviousCollectionItem %}
