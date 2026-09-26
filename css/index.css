@@ -28,7 +28,7 @@
 
     --text-color-link: rgb(219, 92, 245);
     --text-color-link-active: rgb(233, 150, 250);
-    --text-color-link-visited: #a6a6f8;
+    --text-color-link-visited: rgb(219, 92, 245); /* #a6a6f8 */;
 
     --background-color: rgb(22, 22, 24);
   }
