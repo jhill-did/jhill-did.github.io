@@ -6,6 +6,7 @@ import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 import metadata from "./_data/metadata.js";
 import pluginFilters from "./_config/filters.js";
+import obsidianLinks from "./_config/obsidian-links.js";
 
 const pathPrefix = process.env.ELEVENTY_PATH_PREFIX || "/";
 
@@ -42,6 +43,12 @@ export default async function(eleventyConfig) {
   eleventyConfig.addPlugin(HtmlBasePlugin);
   eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
 
+  eleventyConfig.amendLibrary("md", (md) => {
+    md.use(obsidianLinks, {
+      siteUrl: metadata.url,
+      pathPrefix
+    });
+  });
   eleventyConfig.addPlugin(feedPlugin, {
     type: "atom",
     outputPath: "/feed/feed.xml",

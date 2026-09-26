@@ -9,9 +9,12 @@ tags:
 
 Mipmapping involves creating half resolution versions of an image like so
 
+Mipmapping is kinda like level-of-detail for textures 
+
 Mipmapping is a texture filtering approach where details are averaged into a series of smaller resolution images. This is typically done by recursively halving the resolution of the image and for each resulting pixel averaging a 4x4 texel neighborhood from the source image
 
-![[/images/mipmapping.png]]
+\
+![[/images/mipmapping.png | center]]
 
 [[lorem-ipsum]]
 

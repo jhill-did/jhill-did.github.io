@@ -5,7 +5,7 @@
 
 code[class*="language-"],
 pre[class*="language-"] {
-	--code-background: #232323;
+	--code-background: #0e0e0e;
 	--code-normal: #dadada;
 	--code-comment: #666666;
 	--code-function: #e0de71;
@@ -33,10 +33,10 @@ pre[class*="language-"] {
 
 /* Code blocks */
 pre[class*="language-"] {
-	padding: 1em;
+	padding: 1.25em 1.5em 1em 1.5em;
 	margin: .5em 0;
 	overflow: auto;
-	border-radius: 4px;
+	border-radius: 16px;
 }
 
 :not(pre) > code[class*="language-"],
