@@ -2,6 +2,7 @@
 title: Lorem Ipsum
 description: A placeholder post for previewing the post list
 date: 2026-09-20
+draft: true
 tags:
   - notes
   - other

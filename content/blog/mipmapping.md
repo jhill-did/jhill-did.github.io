@@ -2,21 +2,28 @@
 title: Mipmapping
 description: A look at how mipmapping works and some applications 
 date: 2026-09-25
+draft: true
 tags:
   - graphics
 ---
 
+Mipmapping involves creating half resolution versions of an image like so
+
 Mipmapping is a texture filtering approach where details are averaged into a series of smaller resolution images. This is typically done by recursively halving the resolution of the image and for each resulting pixel averaging a 4x4 texel neighborhood from the source image
 
+![[/images/mipmapping.png]]
 
-- Customize the default `eleventy-base-blog` styling when you are ready.
+[[lorem-ipsum]]
+
+## Motivation
+
 
 ```cpp
 #include <iostream>
 
 int main() {
-    std::cout << "Hello, world!" << std::endl;
-    return 0;
+  std::cout << "Hello, world!" << std::endl;
+  return 0;
 }
 ```
 
